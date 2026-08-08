@@ -1,0 +1,21 @@
+[workspace]
+members = [
+    "contracts/recurring-payments",
+]
+resolver = "2"
+
+[workspace.dependencies]
+soroban-sdk = "21.7.0"
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = false
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
